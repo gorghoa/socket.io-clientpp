@@ -1,0 +1,1 @@
+g++ -I../lib/rapidjson/include -I/usr/local/include/websocketpp/ socket_io_client.cpp main.cpp -std=c++0x -L/usr/lib/ -lboost_system -lboost_thread -lboost_regex -lboost_date_time -lboost_random -L/usr/local/lib -lwebsocketpp -o client_socket.bin -J 4

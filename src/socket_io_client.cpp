@@ -211,9 +211,15 @@ void socketio_client_handler::send(unsigned int type, std::string endpoint, std:
    std::stringstream package;
    package << type << ":";
    if (id > 0) package << id;
+   //endpoint="/client";
    package << ":" << endpoint << ":" << msg;
 
+   LOG(package.str());
    send(package.str());
+}
+void socketio_client_handler::nspace(std::string endpoint,unsigned int id)
+{
+   send(1,endpoint,"",id);
 }
 
 void socketio_client_handler::emit(std::string name, Document& args, std::string endpoint, unsigned int id)
