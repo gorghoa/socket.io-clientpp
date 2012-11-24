@@ -40,11 +40,12 @@ int main(int /*argc*/, char* /*argv*/ []) {
         i=0;
       }
 
-const char json[] ="{\"pseudo\":\"I am a c++ guy\",\"p_class\":\"dwarf\"}";
+const char json[] ="{\"args\":{\"pseudo\":\"I am a c++ guy\",\"p_class\":\"dwarf\"}}";
 
         rapidjson::Document d;
-        //d.Parse<0>(json);
+        d.Parse<0>(json);
 
+/*
        Value n;
        n.SetString("I am a c++ guy");//name.c_str(), name.length(), args.GetAllocator());
        d.AddMember("pseudo",n);
@@ -52,6 +53,7 @@ const char json[] ="{\"pseudo\":\"I am a c++ guy\",\"p_class\":\"dwarf\"}";
        Value m;
        m.SetString("dwarf");//name.c_str(), name.length(), args.GetAllocator());
        d.AddMember("p_class",m);
+       */
 
       handler->nspace("/client");
       handler->emit("my pseudo",d,"/client");//"{\"pseudo\":\"alligator\"}");
