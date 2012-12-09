@@ -7,7 +7,7 @@ using namespace socketio;
 
 int main(int /*argc*/, char* /*argv*/ []) {
    // websocket++ expects urls to begin with "ws://" not "http://"
-   std::string uri = "ws://ruth:8888/client";
+   std::string uri = "ws://localhost:8888";
 
    try {
       // Create and link handler to websocket++ callbacks.
@@ -40,22 +40,14 @@ int main(int /*argc*/, char* /*argv*/ []) {
         i=0;
       }
 
-const char json[] ="{\"args\":{\"pseudo\":\"I am a c++ guy\",\"p_class\":\"dwarf\"}}";
+const char json[] ="{\"args\":{\"pseudo\":\"I am a c++ guy\"}}";
 
         rapidjson::Document d;
         d.Parse<0>(json);
 
-/*
-       Value n;
-       n.SetString("I am a c++ guy");//name.c_str(), name.length(), args.GetAllocator());
-       d.AddMember("pseudo",n);
 
-       Value m;
-       m.SetString("dwarf");//name.c_str(), name.length(), args.GetAllocator());
-       d.AddMember("p_class",m);
-       */
-
-      handler->nspace("/client");
+      handler->connect_namespace("/client");
+      handler->connect_namespace("/game");
       handler->emit("my pseudo",d,"/client");//"{\"pseudo\":\"alligator\"}");
 
      

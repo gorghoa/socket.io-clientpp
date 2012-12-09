@@ -87,7 +87,7 @@ public:
    void send(unsigned int type, std::string endpoint, std::string msg, unsigned int id = 0);
 
    // Emulates the emit function from socketIO (type 5) 
-   void nspace(std::string endpoint,unsigned int id=0);
+   void connect_namespace(std::string endpoint,unsigned int id=0);
    void emit(std::string name, Document& args, std::string endpoint = "", unsigned int id = 0);
    void emit(std::string name, std::string arg0, std::string endpoint = "", unsigned int id = 0);
 

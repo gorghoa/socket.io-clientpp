@@ -217,7 +217,7 @@ void socketio_client_handler::send(unsigned int type, std::string endpoint, std:
    LOG(package.str());
    send(package.str());
 }
-void socketio_client_handler::nspace(std::string endpoint,unsigned int id)
+void socketio_client_handler::connect_namespace(std::string endpoint,unsigned int id)
 {
    send(1,endpoint,"",id);
 }
